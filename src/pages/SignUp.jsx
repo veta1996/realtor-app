@@ -2,6 +2,12 @@ import React, {useState} from 'react'
 import {AiFillEye, AiFillEyeInvisible} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import OAuth from '../components/OAuth'
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {db} from '../firebase'
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -11,23 +17,52 @@ const SignUp = () => {
         password: '',
     })
     const {name, email, password} = formData;
+    const navigate = useNavigate()
 
     const onChange = (e) => {
         setFormData((prevState) =>({
             ...prevState, [e.target.id]: e.target.value
         }))
     }
+
+    const onSubmit = async(e) => {
+        e.preventDefault();
+
+        try {
+            const auth = getAuth();
+            const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            updateProfile(auth.currentUser, {
+                displayName: name,
+            });
+            const user = userCredential.user;
+            const formDataCopy = { ...formData };
+            delete formDataCopy.password;
+            formDataCopy.timestamp = serverTimestamp();
+
+            await setDoc(doc(db, "users", user.uid), formDataCopy);
+            toast.success("Sign up was successful")
+            navigate('/')
+        } catch (error) {
+            //make if statement
+            toast.error("Something went wrong with the registration");
+        }
+    }
   return (
     <section>
-        <h1 className='text-3xl text-center mt-6 font-bold md:mb-6 mb-12'>Sign Up</h1>
+        <h1 className='text-3xl text-center mt-6 font-bold'>Sign Up</h1>
         <div className='flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto'>
-            <div className='md:w-[68%] lg:w-[50%]'>
+            <div className='md:w-[67%] lg:w-[50%] mb-12 md:mb-6'>
                 <img src='https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80'
                 alt='sign-in'
                 className='w-full rounded-2xl'/>
             </div>
             <div  className='w-full md:w-[67%] lg:w-[40%] lg:ml-20'>
-                <form>
+                <form onSubmit={onSubmit}>
                 <input type='text' 
                     className='w-full px-4 py-2 text-l text-gray-700 bg-white border-gray-300
                     rounded transition ease-in-out mb-6' 
