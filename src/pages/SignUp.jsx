@@ -28,7 +28,7 @@ const SignUp = () => {
     const onSubmit = async(e) => {
         e.preventDefault();
 
-        try {
+            try {
             const auth = getAuth();
             const userCredential = await createUserWithEmailAndPassword(
                 auth,
@@ -45,12 +45,11 @@ const SignUp = () => {
             formDataCopy.timestamp = serverTimestamp();
 
             await setDoc(doc(db, "users", user.uid), formDataCopy);
-            toast.success("Sign up was successful")
-            navigate('/')
-        } catch (error) {
-            //make if statement
+            // toast.success("Sign up was successful");
+            navigate("/");
+            } catch (error) {
             toast.error("Something went wrong with the registration");
-        }
+            }
     }
   return (
     <section>
