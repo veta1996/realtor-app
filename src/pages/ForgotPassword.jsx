@@ -32,6 +32,7 @@ const ForgotPassword = () => {
             </div>
             <div  className='w-full md:w-[67%] lg:w-[40%] lg:ml-20'>
                 <form onSubmit={onSubmit}>
+                    
                     <input type='email' 
                     className='w-full px-4 py-2 text-l text-gray-700 bg-white border-gray-300
                     rounded transition ease-in-out mb-6' 
