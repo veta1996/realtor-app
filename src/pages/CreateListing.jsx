@@ -137,7 +137,8 @@ const CreateListing = () => {
             ...formData,
             imgUrls, 
             geolocationMap,
-            timestamp: serverTimestamp()
+            timestamp: serverTimestamp(),
+            userRef: auth.currentUser.uid,
         }
         delete formDataCopy.images; 
         !formDataCopy.offer && delete formDataCopy.discountPrice;
