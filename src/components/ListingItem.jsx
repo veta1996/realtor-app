@@ -5,9 +5,8 @@ import {MdLocationOn} from 'react-icons/md'
 import {FaTrash} from 'react-icons/fa'
 import {MdEdit} from 'react-icons/md'
 
-const ListingItem = ({listing, key, id, onDelete, onEdit}) => {
-    console.log(listing)
-    
+const ListingItem = ({listing, id, onDelete, onEdit}) => {
+
   return (
     <li className='relative flex flex-col justify-between items-center shadow-md hover:shadow-xl
     rounded-md overflow-x-auto transition-shadow duration-150 m-[10px]'>

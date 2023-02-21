@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: lavender;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after{
+    color: gray;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+    background: gray !important;
+}
