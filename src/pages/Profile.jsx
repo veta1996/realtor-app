@@ -81,6 +81,7 @@ export default function Profile() {
       fetchUserListings()
   }, [auth.currentUser.uid])
 
+
   const onDelete = async(listingId) => {
       if(window.confirm('Please confirm that you want to delete this listing')){
         await deleteDoc(doc(db, 'listings', listingId))
