@@ -39,7 +39,7 @@ const EditListing = () => {
       description: "",
       offer: false,
       regularPrice: 0,
-      discountedPrice: 0,
+      discountPrice: 0,
       latitude: 0,
       longitude: 0,
       images: {},
@@ -55,7 +55,7 @@ const EditListing = () => {
       description,
       offer,
       regularPrice,
-      discountedPrice,
+      discountPrice,
       latitude,
       longitude,
       images,
@@ -113,7 +113,7 @@ const EditListing = () => {
     async function onSubmit(e) {
       e.preventDefault();
       setLoading(true);
-      if (+discountedPrice >= +regularPrice) {
+      if (+discountPrice >= +regularPrice) {
         setLoading(false);
         toast.error("Discounted price needs to be less than regular price");
         return;
@@ -199,7 +199,7 @@ const EditListing = () => {
         userRef: auth.currentUser.uid,
       };
       delete formDataCopy.images;
-      !formDataCopy.offer && delete formDataCopy.discountedPrice;
+      !formDataCopy.offer && delete formDataCopy.discountPrice;
       delete formDataCopy.latitude;
       delete formDataCopy.longitude;
       const docRef = doc(db, "listings", params.listingId);
@@ -440,8 +440,8 @@ const EditListing = () => {
                 <div className="flex w-full justify-center items-center space-x-6">
                   <input
                     type="number"
-                    id="discountedPrice"
-                    value={discountedPrice}
+                    id="discountPrice"
+                    value={discountPrice}
                     onChange={onChange}
                     min="50"
                     max="400000000"

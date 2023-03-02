@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Slider from '../components/Slider'
 
-export default function Home() {
+
+const Home = () => {
+   
   return (
     <div>
-      Home
+        <Slider/>
     </div>
   )
 }
+
+export default Home

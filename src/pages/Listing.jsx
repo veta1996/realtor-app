@@ -92,17 +92,14 @@ function Listing() {
       <div className="m-4 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg 
       shadow-lg bg-white lg:space-x-5">
         <div className=" w-full ">
-          <p className="text-2xl font-bold mb-3 text-blue-900">
+          <div className="text-2xl font-bold mb-3 text-blue-900">
             {listing.name} - ${" "}
             {listing.offer
-              ? listing.discountedPrice
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-              : listing.regularPrice
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            {listing.type === "rent" ? " / month" : ""}
-          </p>
+              ? listing.discountPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              : listing.regularPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            }
+            <p>{listing.type === "rent" ? " / month" : ""}</p>
+          </div>
           <p className="flex items-center mt-6 mb-3 font-semibold">
             <FaMapMarkerAlt className="text-green-700 mr-1" />
             {listing.address}
@@ -153,7 +150,7 @@ function Listing() {
             <Contact userRef={listing.userRef} listing={listing} />
           )}
         </div>
-        
+
         <div className="w-full h-[200px] md:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2">
             <MapSection listing={listing}/>
         </div>
