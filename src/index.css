@@ -2,13 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@layer base {
+    html {
+      font-family: Helvetica, sans-serif;
+    }
+  }
 body {
-    background-color: lavender;
+    background-color: white;
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after{
-    color: gray;
+    color: white;
 }
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
     background: gray !important;
@@ -20,3 +27,5 @@ html::-webkit-scrollbar{
 html{
     scrollbar-width: none;
 }
+   
+

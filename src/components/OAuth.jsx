@@ -38,10 +38,10 @@ const OAuth = () => {
     type='button'
     onClick={onGoogleClick}
     className='flex items-center justify-center w-full
-    bg-red-700 text-white px-7 py-2 uppercase text-xs font-medium
-    hover:bg-red-800 active:bg-red-900 shadow-md hover:shadow-lg active:shadow-lg
+    bg-gray-100 text-black px-7 py-2 text-xs font-medium
+    hover:bg-gray-200 active:bg-gray-200 shadow-md hover:shadow-lg active:shadow-lg
     transition duration-150 ease-in-out rounded'>
-      <FcGoogle className='text-md bg-white rounded-full mr-2'/>Continue with Google</button>
+      <FcGoogle className='text-md bg-white rounded-full mr-2 font-semibold'/>Sign In With Google</button>
   )
 }
 

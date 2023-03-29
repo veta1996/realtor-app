@@ -487,24 +487,3 @@ const EditListing = () => {
 
 export default EditListing
 
-{/*
-
-const [formData, setFormData] = useState({
-        type: '',
-        name: '',
-        bedrooms: 1,
-        bathrooms: 1,
-        parking: false,
-        furnished: false,
-        address: '',
-        description: '',
-        offer: true,
-        regularPrice: 0,
-        discountPrice: 0,
-        latitude: 0,
-        longitude: 0,
-        images: {}
-    })
-    const {type, name, bedrooms, bathrooms, parking, furnished, address, description,
-    offer, regularPrice, discountPrice, latitude, longitude, images} = formData;
-*/}

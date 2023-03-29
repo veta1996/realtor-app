@@ -96,23 +96,33 @@ export default function Profile() {
   }
   return (
     <>
-    <section className='max-w-6xl mx-auto flex justify-center items-center flex-col'>
-      <h1 className='text-3xl text-center mt-6 font-bold'>My Profile</h1>
+    <section className='max-w-6xl mx-auto flex justify-center items-center flex-col w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8'>
+      <h1 className='text-2xl font-bold text-gray-900 text-center mt-6'>My Profile</h1>
       <div className='w-full md:w-[50%] mt-6 px-3'>
-        <form>
-          <input type='text' id='name' value={name}
-          disabled={!changeDetails}
-          onChange={onChangeInput}
-          className={`w-full mb-6 px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300
-          rounded transition ease-in-out ${changeDetails && 'bg-red-200 focus:bg-red-200'}`}/>
-
-          <input type='text' id='email' value={email}
-          disabled
-          className='w-full mb-6 px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300
-          rounded transition ease-in-out'/>
-
-        <div className='flex justify-between whitespace-normal text-sm sm:text-lg mb-6'>
-          <p className='flex items-center'>Do you want to change your name?
+        <form className='space-y-4'>
+        <div>
+            <label for="name" className="block mb-2 text-sm font-semibold text-gray-900">Your Name</label>
+            <input type="text" nameName="email" id="name" 
+            value={name}
+            disabled={!changeDetails}
+            onChange={onChangeInput}
+            className={`w-full px-2 py-2 text-sm text-gray-700 bg-white border-gray-300
+            rounded transition ease-in-out mb-2
+            focus:border focus:border-gray-200 focus:ring-1 focus:ring-gray-300
+            active:bg-gray-100 active:outline active:ring-2 active:ring-gray-300
+            active:border-gray-400 
+               required ${changeDetails && 'bg-red-200 focus:bg-red-200'}`}/>
+        </div>
+        <div>
+            <label for="email" className="block mb-2 text-sm font-semibold text-gray-900">Your email</label>
+            <input type="text" name="email" value={email} disabled
+            id="email" className="w-full px-2 py-2 text-sm text-gray-700 bg-white border-gray-300
+            rounded transition ease-in-out mb-2 
+             focus:ring-blue-500 focus:border-blue-500 block p-2.5 required" />
+        </div>
+         
+        <div className='flex justify-between whitespace-normal sm:text-lg mb-6 font-semibold text-gray-900'>
+          <p className='flex items-center text-xs'>Do you want to change your name?
           <span className='text-red-600 hover:text-red-700 transition ease-in-out
           duration-200 ml-1 cursor-pointer'
           onClick={() => {
@@ -121,16 +131,13 @@ export default function Profile() {
             {changeDetails ? 'Apply changes' : 'Edit'}
           </span>
           </p>
-          <p className='text-blue-600 hover:text-blue-800 transition 
+          <p className='text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 
+          font-medium rounded-lg text-sm px-4 py-2 text-center transition 
           duration-200 ease-in-out cursor-pointer'
           onClick={onLogOut}>Sign Out</p>
         </div>
         </form>
-        <button type='submit' className=' w-full bg-blue-600 text-white 
-        text-lg px-7 py-2 uppercase rounded hover:bg-blue-700 transition duration-200 ease-in-out'>
-          <Link to='/create-listing' className='flex justify-center items-center'>
-            <FcHome className='mr-2'/>Sell or rent your home</Link>
-          </button>
+        
       </div>
     </section>
 
@@ -151,3 +158,4 @@ export default function Profile() {
     </>
   )
 }
+
