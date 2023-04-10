@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import OAuth from '../components/OAuth'
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
 import {toast} from 'react-toastify'
-import {IoIosMail} from 'react-icons/io'
 
 const SignIn = () => {
     const navigate = useNavigate()
@@ -47,7 +46,7 @@ const SignIn = () => {
                 alt='sign-in'
                 className='w-full hidden sm:flex'/>
             </div>
-            <div className='flex-initial w-[100%] basis-1/2 px-8'>
+            <div className='flex-initial w-[100%] sm:basis-1/2 px-8'>
                 <div className='mb-10'>
                 <h1 className='text-2xl text-start font-bold'>Welcome to Houzez,</h1>
                 <h1 className='text-2xl text-start font-bold mb-6'>Sign In To Continue.</h1>

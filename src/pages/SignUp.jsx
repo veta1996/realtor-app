@@ -62,7 +62,7 @@ const SignUp = () => {
                 className='w-full hidden sm:flex max-h-[700px]'/>
             </div>
 
-            <div className='flex-initial w-[100%] basis-1/2 px-8'>
+            <div className='flex-initial w-[100%] sm:basis-1/2 px-8'>
                 <div className='mb-10'>
                 <h1 className='text-2xl text-start font-bold'>Welcome to Houzez,</h1>
                 <h1 className='text-2xl text-start font-bold mb-6'>Sign Up To Continue.</h1>

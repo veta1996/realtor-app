@@ -32,7 +32,7 @@ const ForgotPassword = () => {
                 className='w-full hidden sm:flex max-h-[700px]'/>
             </div>
 
-            <div className='flex-initial w-[100%] basis-1/2 px-8'>
+            <div className='flex-initial w-[100%] sm:basis-1/2 px-8'>
                 <div className='mb-10'>
                 <h1 className='text-2xl text-start font-bold mb-6'>Reset Your Password</h1>
                 <div className='flex justify-between whitespace-nowrap text-xs sm:text-md'>
